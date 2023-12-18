@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import './extension.css'
+
+
+
+
 declare const chrome: any;
+
 
 const Extension: React.FC = () => {
   const [count, setCount] = useState<number | any>(0);
@@ -10,6 +16,7 @@ const Extension: React.FC = () => {
     if (chrome && chrome.history) {
       chrome.history.search({ text: targetUrl }, (results: any) => {
         const resultsCount = results.length;
+        console.log(resultsCount)
         setCount(resultsCount);
       });
     } else {
@@ -43,27 +50,24 @@ const Extension: React.FC = () => {
     const targetUrl = "pornhub.com";
     removeSearches(targetUrl);
     setDeleted(true);
-  };
-
-  const handleHome = () => {
-    setDeleted(false);
     setScan(false);
   };
 
+  
+
   return (
     <div>
-      {!scan && <button onClick={handleClick}>Scan history for PornHub searches</button>}
+      {!scan && <button className='scan-btn' onClick={handleClick}>Scan history <span>for PornHub searches</span></button>}
       {scan && (
-        <div>
+        <div className='results-div'>
           <h1>PornHub Search History Scan Results</h1>
           <p>Results found: {count}</p>
-          <button onClick={handleDelete}>Remove from history</button>
+          <button className='delete-btn' onClick={handleDelete}>Remove <span>from history</span></button>
         </div>
       )}
       {deleted && (
-        <div>
+        <div className='deleted-div'>
           <p>{count} results removed from search history</p>
-          <button onClick={handleHome}>Home</button>
         </div>
       )}
     </div>

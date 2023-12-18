@@ -1,0 +1,42 @@
+.scan-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(10, 10, 10);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 0px 5px 5px;
+}
+.scan-btn span{
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+    margin-left: 5px;
+}
+.delete-btn{
+    background-color: rgb(10, 10, 10);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 0px 5px 5px;
+}
+.delete-btn span{
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+}
+.results-div{
+    color: orange;
+
+}
+.deleted-div{
+color: white;
+}
